@@ -13,9 +13,9 @@ permalink: /blog/:year/:title/
 paginate_path: /blog/page:num/
 
 # Social media links in footer
-twitter: "https://twitter.com/aessadek"
-linkedin: "https://www.linkedin.com/in/aessadek/"
-github: "https://github.com/aelmokhtar"
+twitter: "aessadek"
+linkedin: "aessadek"
+github: "aelmokhtar"
 
 
 # Markdown
