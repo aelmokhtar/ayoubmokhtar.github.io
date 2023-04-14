@@ -9,7 +9,7 @@ email: "me@ayoubmokhtar.com"
 
 # Pagination
 paginate: 4
-permalink: /blog/:title/
+permalink: /post/:title/
 paginate_path: /blog/page:num/
 
 # Social media links in footer
