@@ -3,8 +3,6 @@ layout: post
 title:  "I could’ve deleted all SMC messages. using Brute Force Technique – PayPal"
 ---
 
-## Introduction:
-
 While playing around with the SMC platform at paypal.com, I came across an interesting endpoint which doesn’t include CSRF token within its request when you delete a message. Cross-Site Request Forgery (CSRF) is an attack that forces an end user to execute unwanted actions on a web application in which they’re currently authenticated. CSRF attacks specifically target state-changing requests, not theft of data, since the attacker has no way to see the response to the forged request. With a little help from social engineering (such as sending a link via email or chat), an attacker may trick the users of a web application into executing actions of the attacker’s choosing. If the victim is a normal user, in this case, a CSRF attack can force the user to delete all of his messages without the victim’s notice.
 
 ### PayPal Message Center [SMC]:
@@ -72,7 +70,7 @@ https://www.paypal.com/smc/delete-msg/?message_id=38223656
 
 So, what’s happening here! When it creates an iframe of https://www.paypal.com/smc/delete-msg/?message_id= it’s going to use the number 38223650 as the value of the message_id parameter and submit the URL. Then it’s going to keep increment the value of the message_id by one more digit +1 until it covers all the messages inside the inbox/sent folder. I could also make this script start from 0 to 9999999.. which means there’s a high chance that the script will cover all valid message_id inside the victim’s account.
 
-![](/_posts/images/post-1-image001.png?raw=true)
+![](/ayoubmokhtar.github.io/_posts/images/post-1-image001.png?raw=true)
 
 The idea behind creating a new iframe is preferable because it takes less memory to process so chances of a crash are also less. And if it DOES the victim won’t control the browser until the script is done. Otherwise, the IFrames keep processing while the victim is waiting for the browser to be stabilized.
 
@@ -81,7 +79,7 @@ The idea behind creating a new iframe is preferable because it takes less memory
 
 The PayPal security team resolved this issue using the most popular implementation to prevent the CSRF vulnerability, which is a secret/random token that is associated with a particular user called Anti-CSRF, then include it within every sensitive request that requires a server-side verification before authorizing any sensitive action.
 
-![](/_posts/images/post-1-image002.png?raw=true)
+![](/ayoubmokhtar.github.io/_posts/images/post-1-image002.png?raw=true)
 
 ### Timeline:
 
