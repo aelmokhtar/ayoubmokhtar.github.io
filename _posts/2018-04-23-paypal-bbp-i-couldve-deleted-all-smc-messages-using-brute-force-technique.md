@@ -3,7 +3,7 @@ layout: post
 title:  "I could’ve deleted all SMC messages. using Brute Force Technique – PayPal"
 ---
 
-While playing around with the SMC platform at paypal.com, I came across an interesting endpoint which doesn’t include CSRF token within its request when you delete a message. Cross-Site Request Forgery (CSRF) is an attack that forces an end user to execute unwanted actions on a web application in which they’re currently authenticated. CSRF attacks specifically target state-changing requests, not theft of data, since the attacker has no way to see the response to the forged request. With a little help from social engineering (such as sending a link via email or chat), an attacker may trick the users of a web application into executing actions of the attacker’s choosing. If the victim is a normal user, in this case, a CSRF attack can force the user to delete all of his messages without the victim’s notice.
+While playing around with the SMC platform at paypal.com, I came across an interesting endpoint that doesn’t include a CSRF token within its request when you delete a message. Cross-Site Request Forgery (CSRF) is an attack that forces an end user to execute unwanted actions on a web application in which they’re currently authenticated. CSRF attacks specifically target state-changing requests, not theft of data, since the attacker has no way to see the response to the forged request. With a little help from social engineering (such as sending a link via email or chat), an attacker may trick the users of a web application into executing actions of the attacker’s choosing. If the victim is a normal user, in this case, a CSRF attack can force the user to delete all of his messages without the victim’s notice.
 
 ### PayPal Message Center [SMC]:
 
@@ -55,7 +55,7 @@ The only way that could let us find the right message_id is to use a dynamic fun
 </html>
 ```
 
-Now, we just have to save this file as an HTML file and upload it to our server in order to send it to the victim. When the victim will access this page, it will create a few new iframes with the SRC attribute set to:
+Now, we just have to save this file as an HTML file and upload it to our server in order to send it to the victim. When the victim accesses this page, it will create a few new iframes with the SRC attribute set to:
 
 
 ```
@@ -68,7 +68,7 @@ https://www.paypal.com/smc/delete-msg/?message_id=38223655
 https://www.paypal.com/smc/delete-msg/?message_id=38223656
 ```
 
-So, what’s happening here! When it creates an iframe of https://www.paypal.com/smc/delete-msg/?message_id= it’s going to use the number 38223650 as the value of the message_id parameter and submit the URL. Then it’s going to keep increment the value of the message_id by one more digit +1 until it covers all the messages inside the inbox/sent folder. I could also make this script start from 0 to 9999999.. which means there’s a high chance that the script will cover all valid message_id inside the victim’s account.
+So, what’s happening here? When it creates an iframe of https://www.paypal.com/smc/delete-msg/?message_id= it’s going to use the number 38223650 as the value of the message_id parameter and submit the URL. Then it’s going to keep incrementing the value of the message_id by one more digit +1 until it covers all the messages inside the inbox/sent folder. I could also make this script start from 0 to 9999999.. which means there’s a high chance that the script will cover all valid message_id inside the victim’s account.
 
 ![](https://github.com/aelmokhtar/ayoubmokhtar.github.io/raw/master/_posts/images/post-1-image001.png)
 
@@ -77,7 +77,7 @@ The idea behind creating a new iframe is preferable because it takes less memory
 
 ## How it got FIXED:
 
-The PayPal security team resolved this issue using the most popular implementation to prevent the CSRF vulnerability, which is a secret/random token that is associated with a particular user called Anti-CSRF, then include it within every sensitive request that requires a server-side verification before authorizing any sensitive action.
+The PayPal security team resolved this issue using the most popular implementation to prevent the CSRF vulnerability, which is a secret/random token that is associated with a particular user called Anti-CSRF, then included it within every sensitive request that requires a server-side verification before authorizing any sensitive action.
 
 ![](https://github.com/aelmokhtar/ayoubmokhtar.github.io/raw/master/_posts/images/post-1-image002.png)
 
@@ -85,4 +85,4 @@ The PayPal security team resolved this issue using the most popular implementati
 
 - 15th of January 2018 – Bug reported.
 - 24th of January 2018 – First response from PayPal, More Information Required –Researcher.
-- 23rd of Mars 2018 – The vulnerability is fixed now.
+- 23rd of March 2018 – The vulnerability is fixed now.
