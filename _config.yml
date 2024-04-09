@@ -10,7 +10,7 @@ email: "me@ayoubmokhtar.com"
 # Pagination
 paginate: 4
 permalink: /post/:title/
-paginate_path: /blog/page:num/
+paginate_path: /research/page:num/
 
 # Social media links in footer
 twitter: "aessadek"
