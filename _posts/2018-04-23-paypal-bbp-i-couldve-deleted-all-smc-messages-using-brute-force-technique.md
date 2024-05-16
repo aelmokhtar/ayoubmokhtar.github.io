@@ -36,7 +36,7 @@ Apparently, there’s no CSRF token right there but there’s a message_id which
 
 The only way that could let us find the right message_id is to use a dynamic functionality written by JavaScript to brute force the message_id through the URL.
 
-```
+```html
 <html>
 <body>
 <div id="elementID"></div>
