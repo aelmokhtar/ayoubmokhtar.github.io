@@ -4,8 +4,8 @@ permalink: /
 published: true
 ---
 
-Experienced application security engineer with a demonstrated history of working in the internet industry. Extensive hands-on expertise in application security and vulnerability research.
+A dedicated Senior Offensive Security Engineer with over 6 years of expertise in application security, attack simulation, and infrastructure penetration testing. At the Noon, I lead offensive security initiatives, leveraging advanced testing techniques and automation to uncover and mitigate critical risks in large-scale, dynamic ecosystems.
 
-Discovered and responsibly reported critical security vulnerabilities to frameworks and services, such as PayPal, Microsoft, Google, Apple, NodeJS, etc.
+My professional journey includes uncovering and responsibly disclosing critical vulnerabilities in global platforms such as PayPal, Microsoft, Google, Apple, and NodeJS, earning recognition from their security teams. My expertise spans penetration testing, red teaming, threat modeling, secure code reviews, and vulnerability research, with a focus on developing scalable tools and processes to enhance offensive security operations.
 
-Throughout my career, I have effectively collaborated with product development teams, security communities, and fellow security engineers. In addition, I have been highly successful in bug bounty programs, which has further sharpened my skills in identifying and addressing vulnerabilities. My unwavering commitment to research and development has enabled me to devise cutting-edge tools and methodologies that bolster both offensive and defensive security strategies.
+Outside of work, I'm passionate about vulnerability research and exploit development, dedicating my free time pushing the boundaries of offensive security through exploring emerging attack vectors and sharing insights on ayoubmokhtar.com. I thrive on tackling complex security challenges, crafting innovative offensive techniques, and simulating real-world attack scenarios to stay ahead of evolving threats.
