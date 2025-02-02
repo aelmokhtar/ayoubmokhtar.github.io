@@ -17,7 +17,6 @@ github: "aelmokhtar"
 
 
 # Markdown
-highlighter: rouge
 markdown: kramdown
 
 # Tracker

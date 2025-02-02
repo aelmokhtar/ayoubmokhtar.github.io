@@ -1,49 +1,77 @@
 ---
-# layout: compress
+layout: compress
 ---
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
 
-    <head>
-        <meta charset="utf-8">
-        <meta content="width=device-width, initial-scale=1" name="viewport">
-        <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
+  <!-- Highlight.js CSS for light & dark mode -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css"
+    media="(prefers-color-scheme: light)"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css"
+    media="(prefers-color-scheme: dark)"
+  />
 
-        <h1 class="post-headline">{{site.title}}</h1>
-        <h3 class="post-description">{{site.description}}</h3>
+  <!-- Then your local main.css (if you have any overrides) -->
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css" />
 
-        {% include navigation.html %}
+  {% seo %}
+  {% include favicon.html %}
+  {% include mathjax.html %}
 
-        {% seo %}
+  <!-- Load Font Awesome asynchronously -->
+  <script type="text/javascript">
+    (function() {
+      var css = document.createElement('link');
+      css.href = 'https://use.fontawesome.com/releases/v5.11.0/css/all.css';
+      css.rel = 'stylesheet';
+      css.type = 'text/css';
+      document.getElementsByTagName('head')[0].appendChild(css);
+    })();
+  </script>
+</head>
 
-        {% include favicon.html %}
+<body>
+  <header>
+    <h1 class="post-headline">{{ site.title }}</h1>
+    <h3 class="post-description">{{ site.description }}</h3>
+    {% include navigation.html %}
+  </header>
 
-        {% include mathjax.html %}
+  <main>
+    <br />
+    <article>
+      {{ content }}
+    </article>
+  </main>
 
-        <!-- Load fontawesome here for faster loadtimes: https://stackoverflow.com/a/35880730/9523246 -->
-        <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.11.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
-    </head>
+  <footer>
+    <p class="copy">
+      <small>&copy; {{ site.title }} {{ site.time | date: '%Y' }}</small>
+    </p>
+    {% include social-footer.html %}
+  </footer>
 
-    <body>
-        <main>
-            <br>
-            <article>
-                {{ content }}
-            </article>
-        </main>
+  {% include analytics.html %}
 
-        <footer>
-          <p class="copy">
-            <small> &copy; {{site.title}} {{ site.time | date: '%Y' }}
-            </small>
-          </p>
+  <!-- Highlight.js (NO line-numbers plugin) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
-        {% include social-footer.html %}
-
-        </footer>
-
-        {% include analytics.html %}
-
-    </body>
-
+  <!-- Minimal script: just highlight all <pre><code> blocks -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("pre code").forEach((block) => {
+        hljs.highlightElement(block);
+      });
+    });
+  </script>
+</body>
 </html>
