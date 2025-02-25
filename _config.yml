@@ -20,7 +20,7 @@ github: "aelmokhtar"
 markdown: kramdown
 
 # Tracker
-analytics:
+google_analytics: G-9H9PVHQFWG
 
 
 compress_html:
